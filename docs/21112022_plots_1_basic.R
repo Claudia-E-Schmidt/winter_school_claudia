@@ -7,6 +7,7 @@
 
 library(tidyverse)
 library(palmerpenguins)
+library(ggridges)
 
 
 # Data --------------------------------------------------------------------
@@ -50,4 +51,10 @@ ggplot(data = na.omit(penguins),
 
 # BONUS -------------------------------------------------------------------
 
-# Create a ridgeplot
+####Create a ridgeplot####
+
+ggplot(data = penguins, 
+       aes(x = body_mass_g, y = bill_length_mm, fill = island)) +
+  geom_density_ridges() +
+  theme_ridges() + 
+  theme(legend.position = "none")
